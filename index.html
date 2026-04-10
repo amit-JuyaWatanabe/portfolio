@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>amit llc | 合同会社amit ポートフォリオ</title>
+    
+    <!-- Tailwind CSS & Font Awesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Montserrat:wght@300;400;600;700;800&display=swap');
+        
+        :root {
+            --kyo-murasaki: #594255;
+            --kyo-murasaki-light: #7a5e75;
+            --kyo-murasaki-dark: #3a2b37;
+        }
+
+        body {
+            font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .bg-kyo-murasaki { background-color: var(--kyo-murasaki); }
+        .text-kyo-murasaki { color: var(--kyo-murasaki); }
+        .border-kyo-murasaki { border-color: var(--kyo-murasaki); }
+
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-blob {
+            animation: blob 7s infinite;
+        }
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+
+        .img-zoom {
+            overflow: hidden;
+            border-radius: 1rem;
+        }
+        .img-zoom img {
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .img-zoom:hover img {
+            transform: scale(1.08);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <!-- ナビゲーション -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md shadow-sm border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold tracking-tighter text-kyo-murasaki">amit</span>
+                </div>
+                <div class="hidden md:flex space-x-8 text-sm font-medium">
+                    <a href="#home" class="hover:text-kyo-murasaki transition">Home</a>
+                    <a href="#about" class="hover:text-kyo-murasaki transition">About</a>
+                    <a href="#services" class="hover:text-kyo-murasaki transition">Services</a>
+                    <a href="#contact" class="hover:text-kyo-murasaki transition">Contact</a>
+                </div>
+                <button class="md:hidden text-slate-600">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ヒーローセクション -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-white pt-16">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-br from-purple-50 to-white opacity-70"></div>
+            <div class="absolute top-20 left-10 w-64 h-64 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+            <div class="absolute bottom-20 right-10 w-80 h-80 bg-slate-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4 py-12 fade-in">
+            <span class="inline-block px-5 py-1.5 mb-8 text-[10px] font-extrabold tracking-[0.3em] text-white bg-kyo-murasaki rounded-full uppercase">The Next Chapter</span>
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter text-slate-900 mb-8 leading-none">
+                IGNITE THE<br><span class="text-kyo-murasaki">FUTURE</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-600 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+                情熱が自信を呼び、輝きが未来を変える。<br>
+                スポーツと美容のシナジーで、まだ見ぬ可能性に火を灯す。
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-5">
+                <a href="#about" class="px-10 py-4 bg-kyo-murasaki text-white rounded-full font-bold hover:bg-kyo-murasaki-dark transition shadow-xl shadow-purple-900/20 tracking-wider">Explore Vision</a>
+                <a href="#contact" class="px-10 py-4 bg-white text-slate-900 border border-slate-200 rounded-full font-bold hover:bg-slate-50 transition tracking-wider">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- アバウトセクション -->
+    <section id="about" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="fade-in">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-8 border-l-4 border-kyo-murasaki pl-6">革新への挑戦</h2>
+                    <p class="text-slate-600 leading-relaxed mb-6">
+                        私たちは「スポーツ×美容」の融合を通じ、人々の生活に豊かな彩りを提供します。これまでにない価値を創造し続け、心と身体をサポートする最良のパートナーを目指します。
+                    </p>
+                    <div class="bg-slate-50 p-8 rounded-2xl mb-8">
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            <i class="fas fa-user-circle text-kyo-murasaki"></i> 代表プロフィール
+                        </h3>
+                        <p class="text-slate-700 font-bold mb-1">渡邊 儒也 / Juya Watanabe</p>
+                        <p class="text-sm text-slate-500 leading-relaxed">
+                            アスリートとしての経験を経て美容業界へ。30年のキャリアとスポーツ界の強力なネットワークを軸に、amitを設立。多角的な事業展開を推進しています。
+                        </p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-12 gap-4 fade-in">
+                    <div class="col-span-12">
+                        <div class="img-zoom shadow-xl mb-4">
+                            <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=80" alt="Beautiful woman in swimwear" class="w-full aspect-[16/10] object-cover">
+                        </div>
+                    </div>
+                    <div class="col-span-7">
+                        <div class="img-zoom shadow-md">
+                            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80" alt="Spa Treatment" class="w-full aspect-square object-cover">
+                        </div>
+                    </div>
+                    <div class="col-span-5">
+                        <div class="img-zoom shadow-md">
+                            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=600&q=80" alt="Sophisticated Woman" class="w-full aspect-[3/4] object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 会社概要テーブル -->
+            <div class="mt-24 max-w-4xl mx-auto bg-slate-50 p-8 md:p-12 rounded-3xl fade-in border border-slate-100">
+                <h3 class="text-2xl font-bold text-center mb-10 text-slate-800">Company Overview</h3>
+                <div class="space-y-4">
+                    <div class="flex flex-col md:flex-row border-b border-slate-200 py-4">
+                        <span class="md:w-1/3 font-bold text-slate-500 uppercase tracking-wider text-xs">会社名</span>
+                        <span class="md:w-2/3 text-slate-900 font-medium">合同会社amit（amit llc）</span>
+                    </div>
+                    <div class="flex flex-col md:flex-row border-b border-slate-200 py-4">
+                        <span class="md:w-1/3 font-bold text-slate-500 uppercase tracking-wider text-xs">代表社員</span>
+                        <span class="md:w-2/3 text-slate-900 font-medium">渡邊 儒也</span>
+                    </div>
+                    <div class="flex flex-col md:flex-row border-b border-slate-200 py-4">
+                        <span class="md:w-1/3 font-bold text-slate-500 uppercase tracking-wider text-xs">所在地</span>
+                        <span class="md:w-2/3 text-slate-900 text-sm">〒064-0804 札幌市中央区南４条西10丁目1004ｰ1 南4条ユニハウス９F</span>
+                    </div>
+                    <div class="flex flex-col md:flex-row border-b border-slate-200 py-4">
+                        <span class="md:w-1/3 font-bold text-slate-500 uppercase tracking-wider text-xs">連絡先</span>
+                        <div class="md:w-2/3 text-slate-900">
+                            <p class="text-sm">TEL: 080-8626-0128</p>
+                            <p class="text-sm">Email: amitllc.nmamdb＠gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- サービスセクション -->
+    <section id="services" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4 uppercase tracking-widest">Business Domains</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto">多角的な視野と専門性を活かし、以下の８つの柱で事業を展開いたします。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="service-card bg-white p-8 rounded-2xl shadow-sm fade-in border border-slate-100">
+                    <div class="w-12 h-12 bg-purple-100 text-kyo-murasaki rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-spa text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-slate-900">1. 美容事業</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">化粧品の企画・製造・販売、および美容人材の育成。</p>
+                </div>
+                <div class="service-card bg-white p-8 rounded-2xl shadow-sm fade-in border border-slate-100">
+                    <div class="w-12 h-12 bg-green-100 text-green-600 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-apple-alt text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-slate-900">2. 食品事業</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">健康と活力を内側からサポートする食品の企画・販売。</p>
+                </div>
+                <div class="service-card bg-white p-8 rounded-2xl shadow-sm fade-in border border-slate-100">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-baseball-ball text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-slate-900">3. スポーツ事業</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">野球をはじめとするスポーツ用品の販売やスクールの開催。</p>
+                </div>
+                <div class="service-card bg-white p-8 rounded-2xl shadow-sm fade-in border border-slate-100">
+                    <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-ticket-alt text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-slate-900">4. エンタメ事業</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">スポーツと美容を掛け合わせたイベントの企画・運営。</p>
+                </div>
+                <div class="service-card bg-white p-8 rounded-2xl shadow-sm fade-in border border-slate-100">
+                    <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-pencil-ruler text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-slate-900">5. 建築デザイン</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">空間の魅力を引き出す建築・空間デザインプロデュース。</p>
+                </div>
+                <div class="service-card bg-white p-8 rounded-2xl shadow-sm fade-in border border-slate-100">
+                    <div class="w-12 h-12 bg-red-100 text-red-600 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-slate-900">6. 防災関連事業</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">地域社会の安心と安全を守る防災グッズの提案・販売。</p>
+                </div>
+                <div class="service-card bg-white p-8 rounded-2xl shadow-sm fade-in border border-slate-100">
+                    <div class="w-12 h-12 bg-slate-200 text-slate-700 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-hands text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-slate-900">7. 葬儀関連事業</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">心に寄り添う、新しい形のサービスの提案。</p>
+                </div>
+                <div class="service-card bg-white p-8 rounded-2xl shadow-sm fade-in border border-slate-100">
+                    <div class="w-12 h-12 bg-yellow-100 text-yellow-700 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-handshake text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-slate-900">8. 仲介・代理店</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">ネットワークを活かした販売代理・マッチングを推進。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- お問い合わせセクション -->
+    <section id="contact" class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
+            <h2 class="text-3xl font-bold text-slate-900 mb-8 uppercase tracking-widest">Contact</h2>
+            <p class="text-slate-600 mb-12">事業に関するご相談は、以下のフォームよりご連絡ください。</p>
+            
+            <form class="space-y-6 text-left bg-slate-50 p-8 md:p-12 rounded-3xl border border-slate-100">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 mb-2 uppercase">Name</label>
+                        <input type="text" placeholder="お名前 / 貴社名" class="w-full px-5 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-kyo-murasaki outline-none transition bg-white text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 mb-2 uppercase">Email</label>
+                        <input type="email" placeholder="example@gmail.com" class="w-full px-5 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-kyo-murasaki outline-none transition bg-white text-sm">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-500 mb-2 uppercase">Message</label>
+                    <textarea rows="4" placeholder="お問い合わせ内容" class="w-full px-5 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-kyo-murasaki outline-none transition bg-white text-sm"></textarea>
+                </div>
+                <button type="button" class="w-full py-4 bg-kyo-murasaki text-white rounded-xl font-bold hover:bg-kyo-murasaki-dark transition uppercase tracking-widest">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="bg-slate-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-3xl font-bold tracking-tighter mb-4">amit</p>
+            <p class="text-slate-500 text-[10px] tracking-[0.4em] mb-12 uppercase">Sports × Beauty Synergy</p>
+            <p class="text-slate-600 text-[10px] tracking-widest uppercase">© 2026 AMIT LLC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // スクロールアニメーション用スクリプト
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        window.onload = () => {
+            document.querySelectorAll('#home .fade-in').forEach(el => el.classList.add('visible'));
+        };
+    </script>
+</body>
+</html>
